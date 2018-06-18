@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Palindrome Number.h"
 #define Error 0
 
 int reverse(int x) {
@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
         printf("请输入数字，进行反转");
         scanf("%d",&n);
         printf("%d\n",reverse(n));
-        
+    
     }
     return 0;
 }
