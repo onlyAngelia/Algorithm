@@ -11,22 +11,26 @@
 bool isPalindrome(int x) {
     
     int result = 0;
-    if (x % 10 == 0) {
-        return 0;
+    if (x % 10 == 0 && x != 0) {
+        return false;
     }
     if (x < 0) {
-        return 0;
+        return false;
     }
     if (x > INT_MAX) return Error;
     while (x > result) {
-        
+        result = result * 10 + x % 10;
+        x /= 10;
     }
-    return x == result ||
+    return x == result || x == result/10;
 }
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
-        NSLog(@"Hello, World!");
+        int n;
+        printf("请输入要判断的数字");
+        scanf("%d", &n);
+        printf("%d\n", isPalindrome(n));
     }
     return 0;
 }
