@@ -47,6 +47,23 @@ void QuickSequence(int array[], int left, int right)
         QuickSequence(array, low + 1, right);
     }
 }
+//直接插入排序
+void directionInsertSequence(int array[],int length)
+{
+    //带插入元素
+    int i,temp;
+    for (i =1; i < length; i ++) {
+        temp = array[i];
+        //循环遍历
+        int j = 0;
+        for (j = i-1; j >= 0 && temp < array[j] ; j--) {
+          
+           array[j + 1] = array[j];
+
+        }
+        array[j+1] = temp;
+    }
+}
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         int count;
@@ -59,7 +76,8 @@ int main(int argc, const char * argv[]) {
             scanf("%d",&array[i]);
         }
 //        BubbleSequence(array, count);
-        QuickSequence(array, 0, count - 1);
+//        QuickSequence(array, 0, count - 1);
+        directionInsertSequence(array, count);
         for (int i = 0; i < count; i ++) {
             printf("%d  ",array[i]);
         }
